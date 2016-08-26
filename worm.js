@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var path = require('path');
 var fs = require('fs');
 //write your url here
-var url = 'http://www.jsfunny.com/2016/07/12/windows7%E4%B8%8Bgit%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4/';
+var url = 'http://www.iqiyi.com/v_19rrlye7qw.html#vfrm=2-3-0-1';
 request(url, function(err, res, body) {
 	if (!err) {
 		acquireData(body)
@@ -16,7 +16,7 @@ request(url, function(err, res, body) {
 function acquireData(data) {
 	var $ = cheerio.load(data); //cheerio解析data
 
-	// here is pictures tagname
+	// here is tagname you can choose by yourself
 	var img = $('img').toArray();
 	console.log(img.length)
 	var len = img.length;
@@ -44,6 +44,6 @@ var downloadImg = function(uri, filename, callback) {
 			return false;
 		}
 		console.log('res: ' + res);
-		request(uri).pipe(fs.createWriteStream('images/' + filename)).on('close', callback); //调用request的管道来下载到 images文件夹下
+		request(uri).pipe(fs.createWriteStream('source/' + filename)).on('close', callback); //调用request的管道来下载到 images文件夹下
 	});
 };
