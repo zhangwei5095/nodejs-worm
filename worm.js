@@ -2,6 +2,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var path = require('path');
 var fs = require('fs');
+//write your url here
 var url = 'http://www.jsfunny.com/2016/07/12/windows7%E4%B8%8Bgit%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4/';
 request(url, function(err, res, body) {
 	if (!err) {
@@ -14,6 +15,8 @@ request(url, function(err, res, body) {
 
 function acquireData(data) {
 	var $ = cheerio.load(data); //cheerio解析data
+
+	// here is pictures tagname
 	var img = $('img').toArray();
 	console.log(img.length)
 	var len = img.length;
