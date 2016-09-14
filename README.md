@@ -1,4 +1,4 @@
-### 简易的nodejs爬虫 
+### 简易nodejs爬虫 
 
 	npm install 
 
